@@ -1,0 +1,6 @@
+.venv/
+data/
+*.keras
+*.h5
+.DS_Store
+.ipynb_checkpoints/
