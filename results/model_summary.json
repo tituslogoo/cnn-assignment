@@ -1,0 +1,84 @@
+{
+  "model_name": "sequential_5",
+  "total_params": 536263,
+  "layers": [
+    {
+      "name": "sequential_1",
+      "type": "Sequential",
+      "output_shape": "(None, 128, 128, 3)",
+      "params": 0
+    },
+    {
+      "name": "conv2d_12",
+      "type": "Conv2D",
+      "output_shape": "(None, 126, 126, 32)",
+      "params": 896
+    },
+    {
+      "name": "max_pooling2d_12",
+      "type": "MaxPooling2D",
+      "output_shape": "(None, 63, 63, 32)",
+      "params": 0
+    },
+    {
+      "name": "conv2d_13",
+      "type": "Conv2D",
+      "output_shape": "(None, 61, 61, 64)",
+      "params": 18496
+    },
+    {
+      "name": "max_pooling2d_13",
+      "type": "MaxPooling2D",
+      "output_shape": "(None, 30, 30, 64)",
+      "params": 0
+    },
+    {
+      "name": "conv2d_14",
+      "type": "Conv2D",
+      "output_shape": "(None, 28, 28, 128)",
+      "params": 73856
+    },
+    {
+      "name": "max_pooling2d_14",
+      "type": "MaxPooling2D",
+      "output_shape": "(None, 14, 14, 128)",
+      "params": 0
+    },
+    {
+      "name": "conv2d_15",
+      "type": "Conv2D",
+      "output_shape": "(None, 12, 12, 128)",
+      "params": 147584
+    },
+    {
+      "name": "max_pooling2d_15",
+      "type": "MaxPooling2D",
+      "output_shape": "(None, 6, 6, 128)",
+      "params": 0
+    },
+    {
+      "name": "flatten_3",
+      "type": "Flatten",
+      "output_shape": "(None, 4608)",
+      "params": 0
+    },
+    {
+      "name": "dropout_3",
+      "type": "Dropout",
+      "output_shape": "(None, 4608)",
+      "params": 0
+    },
+    {
+      "name": "dense_6",
+      "type": "Dense",
+      "output_shape": "(None, 64)",
+      "params": 294976
+    },
+    {
+      "name": "dense_7",
+      "type": "Dense",
+      "output_shape": "(None, 7)",
+      "params": 455
+    }
+  ]
+}
