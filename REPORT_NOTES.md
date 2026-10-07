@@ -27,6 +27,18 @@
 ## Task 2: Preprocessing
 - Deduplication (by file hash): removed 18 images. 16 exact duplicates within the same class, plus both copies of one image labeled both eosinophil and neutrophil (conflicting label). Reason: prevent train/test leakage and contradictory training signal.
 
+- Split: stratified 70/15/15 on file paths (seed 11): 11,951 / 2,561 / 2,562; no overlap; saved to `results/blood_split.json` so notebook and script use the same split.
+- Resize 360x363 -> 128x128 (bilinear); <1% aspect distortion; nucleus texture still visible (`images/blood_before_after_resize.png`).
+- Normalize 0-255 -> 0-1 inside the tf.data loader (`scripts/blood_data.py`), so it cannot be applied twice (cats bug). Images loaded lazily in batches and cached as uint8 (~700 MB) instead of one 3.4 GB float array.
+- Augmentation (training only, random each epoch): RandomFlip horizontal+vertical, RandomRotation(0.5 = ±180°), RandomZoom(0.1), fill_mode="reflect". Change vs cats: vertical flip and full rotation, because cells have no orientation. With 12k images augmentation is optional (decision: keep it; open to revisit). Preview: `images/blood_augmentation_examples.png`.
+- Not the same as the rejected pre-augmented Kaggle set: our augmentation never reaches val/test and creates no stored copies.
+
+## Task 3: Adapted CNN (`scripts/blood_model.py`)
+- Input(128,128,3) -> augmentation -> 4x [Conv2D(32/64/128/128, 3x3, relu) + MaxPool] -> Flatten (4608) -> Dropout(0.3) -> Dense(64, relu) -> Dense(8) logits.
+- 536,328 params; the biggest share is Dense(64): 294,976 (55%).
+- Changes vs TF CIFAR-10 tutorial (3 conv layers 32/64/64, 2 MaxPools, Dense(64), Dense(10), 32x32 input): input 128x128; 4 conv layers (32/64/128/128) each followed by MaxPool, so the 128x128 maps shrink to 6x6 before Flatten (otherwise the Dense layer would be huge); augmentation layers; Dropout; Dense(8) instead of Dense(10).
+- Changes vs cats model: Dense(8) instead of 7 (+65 params), Dropout 0.3 instead of 0.5.
+
 ## Why the dataset changed (cats -> blood cells)
 - Preliminary experiment (git tag `cats-experiments`, files in `archive-cats/`): 7 cat species, 257 images. A from-scratch CNN overfit (train ~78%, val ~36%); 39 validation images made val metrics very noisy (1 image = 2.6 points).
 - Lesson carried over: Dropout(0.5) on 179 training images likely blocked learning (Run 1; single run, hypothesis).
