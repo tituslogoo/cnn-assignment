@@ -45,7 +45,19 @@
 - Epoch 1: train 57.2% / val 71.9%. Epoch 11: 94.2% / 90.3%. Epoch 21: 95.9% / 91.4%. Epoch 51: 97.7% / 95.8% (max val acc 96.3% at epoch 50).
 - Convergence: fast rise in first ~10 epochs, then slow improvement, plateau from ~epoch 36 (val loss 0.13-0.15 for the remaining 15 epochs while train loss kept falling slowly 0.077 -> 0.067). Likely converged; small train-val gap (1-2 points) = little overfitting.
 - Val loss noisier than train loss, but far steadier than cats (2,561 val images: 1 image = 0.04 points vs 2.6 for cats).
+- Figures: `images/blood_run1_loss_curve.png`, `images/blood_run1_accuracy_curve.png` (dashed line = best epoch 36).
+- Curve details: val above train in epochs 1-3 (train metric averaged over the epoch with augmentation + dropout on; val measured at epoch end without them). Val loss spikes at epochs 7, 19, 45 (up to 0.56) while train loss is smooth; likely the constant lr=0.001 is still large late in training. Epoch 36 (0.126) is partly a favorable dip vs neighbors (~0.18-0.27), so selecting by val is slightly optimistic -> report the test set as the honest number.
+- Improvement idea (Task 6): lr schedule / ReduceLROnPlateau to smooth late training (likely, untested).
 - Contrast with cats: same architecture went from val ~36% to ~96%. Likely main reason: data size/quality (12k vs 179 training images), plus visually distinct, centered, uniformly imaged classes.
+
+## Task 6: Test set evaluation (run once, epoch-36 checkpoint)
+- Test accuracy 96.25%, test loss 0.120 (2,562 images). Close to val 95.9%, so selecting the best epoch by val likely did not inflate much.
+- Figure: `images/blood_run1_confusion_matrix.png`.
+- Per-class (precision / recall): basophil 0.882/0.989, eosinophil 0.998/0.998, erythroblast 1.000/0.957, ig 0.882/0.933, lymphocyte 0.988/0.929, monocyte 0.953/0.864, neutrophil 0.990/0.976, platelet 0.997/1.000. Macro F1 0.958.
+- Easy (prediction confirmed): platelet 100% recall (very small, distinct), eosinophil 99.8% (orange-red granules: color matters).
+- Hard: monocyte (lowest recall 86.4%), 27 of 29 errors predicted as ig. ig vs monocyte prediction confirmed.
+- Prediction NOT confirmed: lymphocyte vs erythroblast (only 1 confusion).
+- Unexpected: ig acts as a "fallback" class: 54 of 96 errors are other cells predicted as ig (monocyte 27, neutrophil 11, lymphocyte 8, erythroblast 7, basophil 1). Reverse: 23 ig predicted as basophil (so basophil precision only 0.88). Plausible reason: ig (immature granulocytes) is a mixed group of maturation stages that resembles neutrophils, basophils and monocytes (explanation, not proven).
 
 ## Why the dataset changed (cats -> blood cells)
 - Preliminary experiment (git tag `cats-experiments`, files in `archive-cats/`): 7 cat species, 257 images. A from-scratch CNN overfit (train ~78%, val ~36%); 39 validation images made val metrics very noisy (1 image = 2.6 points).
