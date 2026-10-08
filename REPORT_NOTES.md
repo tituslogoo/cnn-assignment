@@ -59,6 +59,12 @@
 - Prediction NOT confirmed: lymphocyte vs erythroblast (only 1 confusion).
 - Unexpected: ig acts as a "fallback" class: 54 of 96 errors are other cells predicted as ig (monocyte 27, neutrophil 11, lymphocyte 8, erythroblast 7, basophil 1). Reverse: 23 ig predicted as basophil (so basophil precision only 0.88). Plausible reason: ig (immature granulocytes) is a mixed group of maturation stages that resembles neutrophils, basophils and monocytes (explanation, not proven).
 
+- Misclassified examples: `images/blood_run1_misclassified.png` (12 random of 96 errors, seed 11). All 12 involve ig (as true or predicted class). Images are sharp, single centered cell, normal stain -> errors likely come from in-between appearance, not image quality.
+  - ig -> basophil: cells packed with dense dark-purple granules (the main basophil feature).
+  - neutrophil -> ig: single C/S-shaped (band-like) nucleus instead of separate lobes, close to immature forms.
+  - monocyte -> ig: large cell with folded, kidney-shaped nucleus.
+- Improvement ideas (likely, untested): higher input resolution (fine granules shrink at 128 px); lr schedule; class weights or more ig/monocyte examples; transfer learning (Task 7).
+
 ## Why the dataset changed (cats -> blood cells)
 - Preliminary experiment (git tag `cats-experiments`, files in `archive-cats/`): 7 cat species, 257 images. A from-scratch CNN overfit (train ~78%, val ~36%); 39 validation images made val metrics very noisy (1 image = 2.6 points).
 - Lesson carried over: Dropout(0.5) on 179 training images likely blocked learning (Run 1; single run, hypothesis).
