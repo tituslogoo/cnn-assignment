@@ -39,6 +39,14 @@
 - Changes vs TF CIFAR-10 tutorial (3 conv layers 32/64/64, 2 MaxPools, Dense(64), Dense(10), 32x32 input): input 128x128; 4 conv layers (32/64/128/128) each followed by MaxPool, so the 128x128 maps shrink to 6x6 before Flatten (otherwise the Dense layer would be huge); augmentation layers; Dropout; Dense(8) instead of Dense(10).
 - Changes vs cats model: Dense(8) instead of 7 (+65 params), Dropout 0.3 instead of 0.5.
 
+## Task 4/5: Training run blood_run1 (`results/history_blood_run1.json`, log `results/blood_run1_log.txt`)
+- Script `scripts/train_blood.py` (terminal + caffeinate, history saved each epoch, best checkpoint by val_loss, EarlyStopping patience 15). Adam lr=0.001, Dropout 0.3, batch 32, augmentation on, seed 11.
+- ~69 s/epoch on M2 CPU; stopped at epoch 51 (max 60) after 63 min; best val_loss 0.126 at epoch 36 (val acc 95.9%, train acc 97.3%) -> that checkpoint is the final model.
+- Epoch 1: train 57.2% / val 71.9%. Epoch 11: 94.2% / 90.3%. Epoch 21: 95.9% / 91.4%. Epoch 51: 97.7% / 95.8% (max val acc 96.3% at epoch 50).
+- Convergence: fast rise in first ~10 epochs, then slow improvement, plateau from ~epoch 36 (val loss 0.13-0.15 for the remaining 15 epochs while train loss kept falling slowly 0.077 -> 0.067). Likely converged; small train-val gap (1-2 points) = little overfitting.
+- Val loss noisier than train loss, but far steadier than cats (2,561 val images: 1 image = 0.04 points vs 2.6 for cats).
+- Contrast with cats: same architecture went from val ~36% to ~96%. Likely main reason: data size/quality (12k vs 179 training images), plus visually distinct, centered, uniformly imaged classes.
+
 ## Why the dataset changed (cats -> blood cells)
 - Preliminary experiment (git tag `cats-experiments`, files in `archive-cats/`): 7 cat species, 257 images. A from-scratch CNN overfit (train ~78%, val ~36%); 39 validation images made val metrics very noisy (1 image = 2.6 points).
 - Lesson carried over: Dropout(0.5) on 179 training images likely blocked learning (Run 1; single run, hypothesis).

@@ -1,0 +1,106 @@
+/Users/tituslogo/miniforge3/envs/cnn-assignment/lib/python3.11/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Run blood_run1: {'run': 'blood_run1', 'epochs': 60, 'lr': 0.001, 'dropout': 0.3, 'patience': 15}
+Epoch 1/60
+374/374 - 66s - 176ms/step - accuracy: 0.5717 - loss: 1.1134 - val_accuracy: 0.7193 - val_loss: 0.8338
+Epoch 2/60
+374/374 - 88s - 236ms/step - accuracy: 0.8005 - loss: 0.5359 - val_accuracy: 0.8559 - val_loss: 0.3686
+Epoch 3/60
+374/374 - 89s - 238ms/step - accuracy: 0.8580 - loss: 0.3988 - val_accuracy: 0.9024 - val_loss: 0.3028
+Epoch 4/60
+374/374 - 84s - 225ms/step - accuracy: 0.8886 - loss: 0.3209 - val_accuracy: 0.8590 - val_loss: 0.3778
+Epoch 5/60
+374/374 - 90s - 242ms/step - accuracy: 0.9135 - loss: 0.2492 - val_accuracy: 0.8501 - val_loss: 0.4291
+Epoch 6/60
+374/374 - 80s - 214ms/step - accuracy: 0.9192 - loss: 0.2299 - val_accuracy: 0.8520 - val_loss: 0.4221
+Epoch 7/60
+374/374 - 87s - 232ms/step - accuracy: 0.9290 - loss: 0.2052 - val_accuracy: 0.8419 - val_loss: 0.5604
+Epoch 8/60
+374/374 - 95s - 254ms/step - accuracy: 0.9357 - loss: 0.1873 - val_accuracy: 0.9082 - val_loss: 0.2443
+Epoch 9/60
+374/374 - 80s - 214ms/step - accuracy: 0.9361 - loss: 0.1803 - val_accuracy: 0.9067 - val_loss: 0.2618
+Epoch 10/60
+374/374 - 82s - 220ms/step - accuracy: 0.9449 - loss: 0.1596 - val_accuracy: 0.9250 - val_loss: 0.2037
+Epoch 11/60
+374/374 - 70s - 187ms/step - accuracy: 0.9423 - loss: 0.1710 - val_accuracy: 0.9032 - val_loss: 0.2819
+Epoch 12/60
+374/374 - 89s - 238ms/step - accuracy: 0.9464 - loss: 0.1566 - val_accuracy: 0.9352 - val_loss: 0.1710
+Epoch 13/60
+374/374 - 70s - 188ms/step - accuracy: 0.9446 - loss: 0.1496 - val_accuracy: 0.9094 - val_loss: 0.2524
+Epoch 14/60
+374/374 - 70s - 186ms/step - accuracy: 0.9481 - loss: 0.1529 - val_accuracy: 0.9211 - val_loss: 0.2131
+Epoch 15/60
+374/374 - 70s - 188ms/step - accuracy: 0.9541 - loss: 0.1334 - val_accuracy: 0.9266 - val_loss: 0.2115
+Epoch 16/60
+374/374 - 71s - 189ms/step - accuracy: 0.9544 - loss: 0.1277 - val_accuracy: 0.8965 - val_loss: 0.3295
+Epoch 17/60
+374/374 - 71s - 189ms/step - accuracy: 0.9552 - loss: 0.1302 - val_accuracy: 0.9371 - val_loss: 0.1686
+Epoch 18/60
+374/374 - 71s - 191ms/step - accuracy: 0.9605 - loss: 0.1165 - val_accuracy: 0.9215 - val_loss: 0.2368
+Epoch 19/60
+374/374 - 70s - 188ms/step - accuracy: 0.9608 - loss: 0.1105 - val_accuracy: 0.8750 - val_loss: 0.4200
+Epoch 20/60
+374/374 - 71s - 189ms/step - accuracy: 0.9587 - loss: 0.1138 - val_accuracy: 0.9254 - val_loss: 0.2326
+Epoch 21/60
+374/374 - 69s - 185ms/step - accuracy: 0.9591 - loss: 0.1119 - val_accuracy: 0.9137 - val_loss: 0.2633
+Epoch 22/60
+374/374 - 69s - 184ms/step - accuracy: 0.9625 - loss: 0.1073 - val_accuracy: 0.9379 - val_loss: 0.2037
+Epoch 23/60
+374/374 - 70s - 188ms/step - accuracy: 0.9633 - loss: 0.1039 - val_accuracy: 0.9539 - val_loss: 0.1419
+Epoch 24/60
+374/374 - 71s - 191ms/step - accuracy: 0.9625 - loss: 0.1061 - val_accuracy: 0.9285 - val_loss: 0.2190
+Epoch 25/60
+374/374 - 71s - 191ms/step - accuracy: 0.9617 - loss: 0.1124 - val_accuracy: 0.9203 - val_loss: 0.2404
+Epoch 26/60
+374/374 - 71s - 190ms/step - accuracy: 0.9653 - loss: 0.1023 - val_accuracy: 0.9242 - val_loss: 0.2208
+Epoch 27/60
+374/374 - 69s - 184ms/step - accuracy: 0.9649 - loss: 0.0987 - val_accuracy: 0.9184 - val_loss: 0.2477
+Epoch 28/60
+374/374 - 70s - 188ms/step - accuracy: 0.9689 - loss: 0.0925 - val_accuracy: 0.9356 - val_loss: 0.2041
+Epoch 29/60
+374/374 - 71s - 190ms/step - accuracy: 0.9653 - loss: 0.0957 - val_accuracy: 0.9364 - val_loss: 0.1909
+Epoch 30/60
+374/374 - 86s - 230ms/step - accuracy: 0.9652 - loss: 0.0958 - val_accuracy: 0.9403 - val_loss: 0.1801
+Epoch 31/60
+374/374 - 73s - 195ms/step - accuracy: 0.9691 - loss: 0.0874 - val_accuracy: 0.9410 - val_loss: 0.1878
+Epoch 32/60
+374/374 - 70s - 187ms/step - accuracy: 0.9686 - loss: 0.0877 - val_accuracy: 0.9313 - val_loss: 0.2322
+Epoch 33/60
+374/374 - 72s - 193ms/step - accuracy: 0.9697 - loss: 0.0888 - val_accuracy: 0.9352 - val_loss: 0.2134
+Epoch 34/60
+374/374 - 69s - 185ms/step - accuracy: 0.9718 - loss: 0.0724 - val_accuracy: 0.9395 - val_loss: 0.1953
+Epoch 35/60
+374/374 - 69s - 184ms/step - accuracy: 0.9703 - loss: 0.0844 - val_accuracy: 0.9223 - val_loss: 0.2689
+Epoch 36/60
+374/374 - 68s - 183ms/step - accuracy: 0.9730 - loss: 0.0766 - val_accuracy: 0.9594 - val_loss: 0.1260
+Epoch 37/60
+374/374 - 69s - 185ms/step - accuracy: 0.9729 - loss: 0.0782 - val_accuracy: 0.9430 - val_loss: 0.1815
+Epoch 38/60
+374/374 - 70s - 188ms/step - accuracy: 0.9729 - loss: 0.0824 - val_accuracy: 0.9371 - val_loss: 0.2182
+Epoch 39/60
+374/374 - 69s - 185ms/step - accuracy: 0.9715 - loss: 0.0793 - val_accuracy: 0.9403 - val_loss: 0.2066
+Epoch 40/60
+374/374 - 70s - 188ms/step - accuracy: 0.9725 - loss: 0.0792 - val_accuracy: 0.9465 - val_loss: 0.1587
+Epoch 41/60
+374/374 - 71s - 191ms/step - accuracy: 0.9744 - loss: 0.0692 - val_accuracy: 0.9500 - val_loss: 0.1515
+Epoch 42/60
+374/374 - 70s - 187ms/step - accuracy: 0.9726 - loss: 0.0760 - val_accuracy: 0.9375 - val_loss: 0.1901
+Epoch 43/60
+374/374 - 73s - 194ms/step - accuracy: 0.9735 - loss: 0.0727 - val_accuracy: 0.9235 - val_loss: 0.2628
+Epoch 44/60
+374/374 - 88s - 235ms/step - accuracy: 0.9726 - loss: 0.0803 - val_accuracy: 0.9508 - val_loss: 0.1380
+Epoch 45/60
+374/374 - 70s - 187ms/step - accuracy: 0.9734 - loss: 0.0754 - val_accuracy: 0.8969 - val_loss: 0.4223
+Epoch 46/60
+374/374 - 70s - 187ms/step - accuracy: 0.9812 - loss: 0.0558 - val_accuracy: 0.9574 - val_loss: 0.1505
+Epoch 47/60
+374/374 - 69s - 186ms/step - accuracy: 0.9746 - loss: 0.0714 - val_accuracy: 0.9442 - val_loss: 0.1886
+Epoch 48/60
+374/374 - 70s - 188ms/step - accuracy: 0.9754 - loss: 0.0696 - val_accuracy: 0.9356 - val_loss: 0.2057
+Epoch 49/60
+374/374 - 69s - 183ms/step - accuracy: 0.9761 - loss: 0.0684 - val_accuracy: 0.9574 - val_loss: 0.1277
+Epoch 50/60
+374/374 - 68s - 182ms/step - accuracy: 0.9777 - loss: 0.0640 - val_accuracy: 0.9633 - val_loss: 0.1314
+Epoch 51/60
+374/374 - 69s - 185ms/step - accuracy: 0.9768 - loss: 0.0673 - val_accuracy: 0.9578 - val_loss: 0.1421
+Done. History: /Users/tituslogo/cnn-assignment/results/history_blood_run1.json  Best model: /Users/tituslogo/cnn-assignment/results/blood_run1_best.keras
